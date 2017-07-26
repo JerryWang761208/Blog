@@ -337,36 +337,22 @@
 
       
         
-          
-            <p>I have a blog as you see now on github-page builded by Hexo.</p>
+          <p>I have a blog as you see now on github-page builded by Hexo.</p>
 <p>And I have an own domain &quot;c1495616.com&quot; bought from godaddy.</p>
 <p>And I use Cloudflare as my DNS manager.</p>
 <ol>
-<li><p>add CNAME in source  directory.
+<li>add CNAME in source  directory.
  <img src="https://jerry.c1495616.com/images/1500653146566.png" alt="image">
  (must put in source directory, otherwise disappear when you deploy.
  and add your wanted domain, ex : jerry.c1495616.com in CNAME.
- <img src="https://jerry.c1495616.com/images/1500653281221.png" alt="image"></p>
-</li>
-<li><p>Cloudflare and add CNAME
-<img src="https://jerry.c1495616.com/images/1500653410702.png" alt="image"></p>
-</li>
-<li><p>_config.yml
-<img src="https://jerry.c1495616.com/images/1500653464968.png" alt="image">
-change root to &quot;/&quot; instead of github directory name</p>
-</li>
-<li><p>put the following in  _layout.swig ( I use &quot;next&quot; as my template)</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    var host = "jerry.c1495616.com";</div><div class="line">    if ((host == window.location.host) &amp;&amp; (window.location.protocol != "https:"))</div><div class="line">        window.location.protocol = "https";</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>if use custom js file in _layout.swig
-change the url (ex: /Blog/xxxx  to  //jerry.c1495616.com/XXX</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//jerry.c1495616.com/js/src/particles.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//jerry.c1495616.com/js/src/love.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>ref: </p>
-<p><a href="https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/" target="_blank" rel="external">https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/</a></p>
-
-          
+ <img src="https://jerry.c1495616.com/images/1500653281221.png" alt="image">
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/untitled-1500652945006/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1600,6 +1586,15 @@ We can see crontab visualy.
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
           
 
         </nav>
