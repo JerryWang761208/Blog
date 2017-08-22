@@ -110,7 +110,8 @@
 <meta property="og:image" content="https://jerry.c1495616.com/images/1500653281221.png">
 <meta property="og:image" content="https://jerry.c1495616.com/images/1500653410702.png">
 <meta property="og:image" content="https://jerry.c1495616.com/images/1500653464968.png">
-<meta property="og:updated_time" content="2017-07-26T05:23:06.000Z">
+<meta property="og:image" content="https://jerry.c1495616.com/images/1503415087378.png">
+<meta property="og:updated_time" content="2017-08-22T15:19:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Hexo] SSL and Own Domain With Cloudflare">
 <meta name="twitter:description" content="I have a blog as you see now on github-page builded by Hexo. And I have an own domain &amp;quot;c1495616.com&amp;quot; bought from godaddy. And I use Cloudflare as my DNS manager.  add CNAME in source  direct">
@@ -388,9 +389,18 @@ change root to &quot;/&quot; instead of github directory name</p>
 change the url (ex: /Blog/xxxx  to  //jerry.c1495616.com/XXX</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//jerry.c1495616.com/js/src/particles.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//jerry.c1495616.com/js/src/love.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
+<li><p>Cloudflare part:
+i) check the cloud, let it become orange.
+ii) Add page rule:
+ex: jerry.c1495616.com  =&gt; type: jerry.c1495616.com/*
+And choose SSL to become &quot;flexible&quot;
+<img src="https://jerry.c1495616.com/images/1503415087378.png" alt="image"></p>
+</li>
 </ol>
-<p>ref: </p>
-<p><a href="https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/" target="_blank" rel="external">https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/</a></p>
+<p>ref: 
+<a href="https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/" target="_blank" rel="external">https://sheharyar.me/blog/free-ssl-for-github-pages-with-custom-domains/</a></p>
+<p><a href="https://blog.xingoxu.com/2015/04/github-pages-ssl/" target="_blank" rel="external">https://blog.xingoxu.com/2015/04/github-pages-ssl/</a></p>
+<p><a href="https://sofree.cc/cloudflare-free-ssl/" target="_blank" rel="external">https://sofree.cc/cloudflare-free-ssl/</a></p>
 
       
     </div>
