@@ -103,6 +103,7 @@
 <meta property="og:title" content="c1495616">
 <meta property="og:url" content="https://jerry.c1495616.com/page/3/index.html">
 <meta property="og:site_name" content="c1495616">
+<meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c1495616">
 
@@ -260,6 +261,140 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jerry.c1495616.com/2016/12/28/iOS-php-upload-images-to-server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://scontent.ftpe4-1.fna.fbcdn.net/v/t1.0-9/11150897_10153255988572276_6605622921922340356_n.jpg?oh=6bbd73fca0336b7b6fb78195f3fff863&oe=59A466EB">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="c1495616">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/28/iOS-php-upload-images-to-server/" itemprop="url">[iOS & php] upload images to server</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-28T18:46:39+08:00">
+                2016-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/12/28/iOS-php-upload-images-to-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2016/12/28/iOS-php-upload-images-to-server/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Images uploading is general for user.</p>
+<p>I&#39;m writing iOS project using Objective-c and server side
+is php.</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"joker.png"</span>];  <span class="comment">// name of the image</span></span><br><span class="line"> </span><br><span class="line"> <span class="built_in">NSData</span> *imageData =  <span class="built_in">UIImagePNGRepresentation</span>(image);  <span class="comment">// convert your image into data</span></span><br><span class="line"> </span><br><span class="line"> <span class="built_in">NSString</span> *urlString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"YOUR URL"</span>];  <span class="comment">// enter your url to upload</span></span><br><span class="line">  </span><br><span class="line"> AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];  <span class="comment">// allocate AFHTTPManager</span></span><br><span class="line"> </span><br><span class="line"> [manager POST:urlString parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;  <span class="comment">// POST DATA USING MULTIPART CONTENT TYPE</span></span><br><span class="line">     [formData appendPartWithFileData:imageData</span><br><span class="line">                                 name:<span class="string">@"file"</span></span><br><span class="line">                             fileName:<span class="string">@"image.jpg"</span> mimeType:<span class="string">@"image/jpeg"</span>];   <span class="comment">// add image to formData</span></span><br><span class="line">     </span><br><span class="line">     [formData appendPartWithFormData:[<span class="string">@"sdsd"</span> dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>]</span><br><span class="line">                                 name:<span class="string">@"key1"</span>];    <span class="comment">// add your other keys !!! </span></span><br><span class="line">   </span><br><span class="line"> &#125; progress:<span class="literal">nil</span> success:^(<span class="built_in">NSURLSessionDataTask</span> *task, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"Response: %@"</span>, responseObject);    <span class="comment">// Get response from the server</span></span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line"> &#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> *task, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"Error: %@"</span>, error);   <span class="comment">// Gives Error</span></span><br><span class="line">   </span><br><span class="line"> &#125;]</span><br></pre></td></tr></table></figure>
+<p>You could change parameters if it&#39;s not nil.</p>
+<p>The above is credit for : <a href="http://codeobjectivec.blogspot.tw/2016/04/upload-image-file-to-server-in-ios.html" target="_blank" rel="noopener">link</a> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//images upload ios</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">upload</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		$name = $_FILES[<span class="string">'file'</span>][<span class="string">'name'</span>];</span><br><span class="line">		$tmp_name = $_FILES[<span class="string">'file'</span>][<span class="string">'tmp_name'</span>];</span><br><span class="line">		$type = $_FILES[<span class="string">'file'</span>][<span class="string">'type'</span>];</span><br><span class="line">		$size = $_FILES[<span class="string">'file'</span>][<span class="string">'size'</span>];</span><br></pre></td></tr></table></figure>
+<p>forgive me the php part, it&#39;s my company project which is privacy.</p>
+<p>Just beware that </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name:@<span class="string">"file"</span>   $_FILES[<span class="string">'file'</span>]</span><br></pre></td></tr></table></figure>
+<p>the name &quot;file&quot; should be the same.</p>
+<p>And while in Android, you should use base64 in php.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://jerry.c1495616.com/2016/12/27/presentation-20161227/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -366,7 +501,7 @@
 <hr>
 <p><img src="https://cdn.keycdn.com/img/cdn-benefits-explained.png" alt=""></p>
 <hr>
-<p><a href="https://www.youtube.com/watch?v=SdVWAX2Js-g" target="_blank" rel="external"><img src="https://img.youtube.com/vi/SdVWAX2Js-g/0.jpg" alt=""></a></p>
+<p><a href="https://www.youtube.com/watch?v=SdVWAX2Js-g" target="_blank" rel="noopener"><img src="https://img.youtube.com/vi/SdVWAX2Js-g/0.jpg" alt=""></a></p>
 <hr>
 <h2 id="KKBox"><a href="#KKBox" class="headerlink" title="KKBox"></a>KKBox</h2><h3 id="useful-tools"><a href="#useful-tools" class="headerlink" title="useful tools"></a>useful tools</h3><ul>
 <li>smokeping</li>
@@ -375,14 +510,14 @@
 <li>curl</li>
 </ul>
 <!--v-->
-<p><a href="https://smokeping.kkbox.com.tw/" target="_blank" rel="external">smokeping</a></p>
+<p><a href="https://smokeping.kkbox.com.tw/" target="_blank" rel="noopener">smokeping</a></p>
 <!--v-->
 <p>Latency is good via ICMP test, but curl is not.</p>
 <p>台灣固網客戶一直抱怨, bottlenecks is ISP.</p>
 <hr>
-<h2 id="Microsoft"><a href="#Microsoft" class="headerlink" title="Microsoft"></a>Microsoft</h2><p><a href="https://dotblogs.com.tw/pandachris/2016/08/28/community-open-camp-2016-microsoft-now-future" target="_blank" rel="external">introduction</a></p>
-<p><a href="https://channel9.msdn.com/Events/Community-Open-Camp/Community-Open-Camp-2016/ComOpenCamp002" target="_blank" rel="external">video (10:00, 43:00)</a></p>
-<p><a href="http://blog.kkbruce.net/2016/08/howto-enable-windows10-1607-ubuntu-bash.html#.WGGnOLFh0sk" target="_blank" rel="external">ubuntu in Windows 10</a></p>
+<h2 id="Microsoft"><a href="#Microsoft" class="headerlink" title="Microsoft"></a>Microsoft</h2><p><a href="https://dotblogs.com.tw/pandachris/2016/08/28/community-open-camp-2016-microsoft-now-future" target="_blank" rel="noopener">introduction</a></p>
+<p><a href="https://channel9.msdn.com/Events/Community-Open-Camp/Community-Open-Camp-2016/ComOpenCamp002" target="_blank" rel="noopener">video (10:00, 43:00)</a></p>
+<p><a href="http://blog.kkbruce.net/2016/08/howto-enable-windows10-1607-ubuntu-bash.html#.WGGnOLFh0sk" target="_blank" rel="noopener">ubuntu in Windows 10</a></p>
 
           
         
@@ -508,8 +643,8 @@
             <p>I try to prepare presentation in my company.</p>
 <p>And in my mind, I refuse using PPT.
 Instead, I switch to use slide capabled posting on page, especially, github.</p>
-<p><a href="https://github.com/hakimel/reveal.js#speaker-notes" target="_blank" rel="external">reveal.js</a>
-<a href="https://www.npmjs.com/package/reveal-md-export" target="_blank" rel="external">npm link</a></p>
+<p><a href="https://github.com/hakimel/reveal.js#speaker-notes" target="_blank" rel="noopener">reveal.js</a>
+<a href="https://www.npmjs.com/package/reveal-md-export" target="_blank" rel="noopener">npm link</a></p>
 
           
         
@@ -637,8 +772,8 @@ Instead, I switch to use slide capabled posting on page, especially, github.</p>
 you need to use.</p>
 <p>At first, we could see <strong>webpack.config.js</strong> is a hard part for learning at beggining.</p>
 <p>Just recommend the following article from Medium.</p>
-<p><a href="https://medium.com/@dabit3/beginner-s-guide-to-webpack-b1f1a3638460#.lxkx9lhhj" target="_blank" rel="external">Beginner’s guide to Webpack</a></p>
-<p><a href="https://webpack.github.io/docs/" target="_blank" rel="external">Official guide to Webpack</a></p>
+<p><a href="https://medium.com/@dabit3/beginner-s-guide-to-webpack-b1f1a3638460#.lxkx9lhhj" target="_blank" rel="noopener">Beginner’s guide to Webpack</a></p>
+<p><a href="https://webpack.github.io/docs/" target="_blank" rel="noopener">Official guide to Webpack</a></p>
 
           
         
@@ -763,9 +898,9 @@ you need to use.</p>
           
             <p>Today, I went to Kaohsiung to join a talk about CDN.
 And the speaker kept using &#39;mtr&#39; command to test which is not known for me.</p>
-<p><a href="http://www.arthurtoday.com/2012/11/mtr-linux-tracert.html" target="_blank" rel="external">About MTR</a></p>
+<p><a href="http://www.arthurtoday.com/2012/11/mtr-linux-tracert.html" target="_blank" rel="noopener">About MTR</a></p>
 <p>###Install on mac:</p>
-<p><a href="http://rudix.org/packages/mtr.html" target="_blank" rel="external">download</a></p>
+<p><a href="http://rudix.org/packages/mtr.html" target="_blank" rel="noopener">download</a></p>
 
           
         
@@ -893,8 +1028,8 @@ And the speaker kept using &#39;mtr&#39; command to test which is not known for 
 <p>I would love to write a diary in English everyday.
 By using hexo as my blog generator is so funny and exciting.</p>
 <p>When I push my article to Github, I need to do </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
-<h3 id="And-I-am-very-lazy-I-put-script-in-package-json-which-is-the-following"><a href="#And-I-am-very-lazy-I-put-script-in-package-json-which-is-the-following" class="headerlink" title="And I am very lazy, I put script in package.json which is the following"></a>And I am very lazy, I put script in <strong>package.json</strong> which is the following</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>:&#123;</div><div class="line">    <span class="string">"deploy"</span>: <span class="string">"hexo g &amp;&amp; hexo d"</span></div><div class="line">  &#125;</div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">### And now I just need to type in one line:</span></div><div class="line"></div><div class="line"></div><div class="line">``` bash</div><div class="line">$ npm run deploy</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
+<h3 id="And-I-am-very-lazy-I-put-script-in-package-json-which-is-the-following"><a href="#And-I-am-very-lazy-I-put-script-in-package-json-which-is-the-following" class="headerlink" title="And I am very lazy, I put script in package.json which is the following"></a>And I am very lazy, I put script in <strong>package.json</strong> which is the following</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>:&#123;</span><br><span class="line">    <span class="string">"deploy"</span>: <span class="string">"hexo g &amp;&amp; hexo d"</span></span><br><span class="line">  &#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">### And now I just need to type in one line:</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">$ npm run deploy</span><br></pre></td></tr></table></figure>
 
           
         
@@ -978,7 +1113,7 @@ By using hexo as my blog generator is so funny and exciting.</p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -1042,7 +1177,7 @@ By using hexo as my blog generator is so funny and exciting.</p>
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

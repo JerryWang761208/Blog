@@ -105,6 +105,7 @@
 <meta property="og:url" content="https://jerry.c1495616.com/2017/01/12/iOS-add-spinner-until-loading-map-completely/index.html">
 <meta property="og:site_name" content="c1495616">
 <meta property="og:description" content="Before finishing loading mapView, it&amp;#39;s not a good user experience  for user if there&amp;#39;s no spinner. We use classic spinner on the github. i.e.  SVProgressHUD 123456#import &quot;SVProgressHUD.h&quot;-(vo">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2017-01-11T10:06:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[iOS] add spinner until loading map completely">
@@ -341,11 +342,11 @@
 for user if there&#39;s no spinner.</p>
 <p>We use classic spinner on the github.
 i.e. </p>
-<p><a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="external">SVProgressHUD</a></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"SVProgressHUD.h"</span></span></div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)viewDidLoad()&#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    [SVProgressHUD show]; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="noopener">SVProgressHUD</a></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"SVProgressHUD.h"</span></span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)viewDidLoad()&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    [SVProgressHUD show]; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then the keypoint is the delegation.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)mapViewDidFinishRenderingMap:(<span class="built_in">MKMapView</span> *)mapView fullyRendered:(<span class="built_in">BOOL</span>)fullyRendered <span class="comment">//地圖畫好後，解除spinner</span></div><div class="line">&#123;</div><div class="line">    [SVProgressHUD dismiss];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>All credit for <a href="http://stackoverflow.com/questions/12967128/how-to-use-mkmapview-finished-loading-delegate-possible-finished-displaying-d" target="_blank" rel="external">link</a></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)mapViewDidFinishRenderingMap:(<span class="built_in">MKMapView</span> *)mapView fullyRendered:(<span class="built_in">BOOL</span>)fullyRendered <span class="comment">//地圖畫好後，解除spinner</span></span><br><span class="line">&#123;</span><br><span class="line">    [SVProgressHUD dismiss];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>All credit for <a href="http://stackoverflow.com/questions/12967128/how-to-use-mkmapview-finished-loading-delegate-possible-finished-displaying-d" target="_blank" rel="noopener">link</a></p>
 
       
     </div>
@@ -464,7 +465,7 @@ i.e. </p>
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -528,7 +529,7 @@ i.e. </p>
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
