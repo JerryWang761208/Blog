@@ -261,6 +261,128 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://jerry.c1495616.com/2018/03/07/untitled-1520430816722/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jerry Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://scontent.ftpe4-1.fna.fbcdn.net/v/t1.0-9/11150897_10153255988572276_6605622921922340356_n.jpg?oh=6bbd73fca0336b7b6fb78195f3fff863&oe=59A466EB">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="c1495616">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/07/untitled-1520430816722/" itemprop="url">[iOS] Get address from latitude and longtitude using Google Geocode Api</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-07T21:53:36+08:00">
+                2018-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/03/07/untitled-1520430816722/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/03/07/untitled-1520430816722/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)getAddrByLatLng</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableDictionary</span>* p = [[<span class="built_in">NSMutableDictionary</span> alloc]init];</span><br><span class="line">    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</span><br><span class="line">    [manager POST:[<span class="keyword">self</span> getGoogelGeoUrl:lat_d lngs:lng_d ] parameters:p progress:<span class="literal">nil</span> success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable object) &#123;</span><br><span class="line">        [SVProgressHUD dismiss];</span><br><span class="line">        <span class="built_in">NSArray</span> *array = object[<span class="string">@"results"</span>];</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"googlemap:%@"</span>, object);</span><br><span class="line">        <span class="keyword">if</span>(array.count &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">NSDictionary</span> * dic = [array objectAtIndex:<span class="number">0</span>];</span><br><span class="line">            <span class="comment">//            NSString * addr = [dic objectForKey:@"formatted_address"];</span></span><br><span class="line">            <span class="built_in">NSArray</span> *components = [dic objectForKey:<span class="string">@"address_components"</span>];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">NSDictionary</span>* e <span class="keyword">in</span> components)&#123;</span><br><span class="line">                <span class="keyword">if</span>([[e objectForKey:<span class="string">@"types"</span>]isEqual:@[<span class="string">@"administrative_area_level_3"</span>,<span class="string">@"political"</span>]])&#123;</span><br><span class="line">                    mDistrict = [e objectForKey:<span class="string">@"long_name"</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>([[e objectForKey:<span class="string">@"types"</span>]isEqual:@[<span class="string">@"administrative_area_level_1"</span>,<span class="string">@"political"</span>]])&#123;</span><br><span class="line">                    mCity = [e objectForKey:<span class="string">@"long_name"</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            [<span class="keyword">self</span> setupDataSource];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line">        [SVProgressHUD dismiss];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *) getGoogelGeoUrl:(<span class="keyword">double</span>)lats lngs:(<span class="keyword">double</span>)lngs &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *apiKeyFromGoogleApi = <span class="string">@""</span>;</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&amp;key=%@&amp;sensor=true&amp;language=zh-TW"</span>, lats, lngs, apiKeyFromGoogleApi];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://jerry.c1495616.com/2018/03/07/untitled-1520429872923/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1434,129 +1556,6 @@ We can see crontab visualy.
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://jerry.c1495616.com/2017/07/04/untitled-1499134108330/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jerry Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://scontent.ftpe4-1.fna.fbcdn.net/v/t1.0-9/11150897_10153255988572276_6605622921922340356_n.jpg?oh=6bbd73fca0336b7b6fb78195f3fff863&oe=59A466EB">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="c1495616">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/04/untitled-1499134108330/" itemprop="url">[iOS] Localization</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-04T10:08:28+08:00">
-                2017-07-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/04/untitled-1499134108330/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/04/untitled-1499134108330/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://aac1109.pixnet.net/blog/post/82326317-%5Bios%5D-%E6%94%AF%E6%8F%B4%E5%A4%9A%E5%9C%8B%E8%AA%9E%E7%B3%BB" target="_blank" rel="noopener">http://aac1109.pixnet.net/blog/post/82326317-%5Bios%5D-%E6%94%AF%E6%8F%B4%E5%A4%9A%E5%9C%8B%E8%AA%9E%E7%B3%BB</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1606,7 +1605,7 @@ We can see crontab visualy.
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
