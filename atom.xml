@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jerry.c1495616.com/"/>
-  <updated>2018-03-11T07:01:24.000Z</updated>
+  <updated>2018-08-11T15:31:38.118Z</updated>
   <id>https://jerry.c1495616.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VSCode SSH Edit</title>
+    <link href="https://jerry.c1495616.com/2018/08/11/untitled-1534000830884/"/>
+    <id>https://jerry.c1495616.com/2018/08/11/untitled-1534000830884/</id>
+    <published>2018-08-11T15:20:30.000Z</published>
+    <updated>2018-08-11T15:31:38.118Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://jerry.c1495616.com/images/1534000846591.png" alt="image"></p><p>Sometime I want to use vscode for remote server for convenience.After Google it, I found the folowing artice useful.<a href="https://lucien-x.github.io/2018/03/06/%E6%8A%9B%E5%BC%83Vim-SSH%E4%B9%9F%E8%83%BD%E7%94%A8VSCode/#more" target="_blank" rel="noopener">Article</a></p><p>( I just copy everything from the article and translate to En and Mac)</p><h3 id="remote-server"><a href="#remote-server" class="headerlink" title="remote server"></a>remote server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ssh login ur server</span></span><br><span class="line">ssh remoteUser@xxx.xxx.xxx.xxx</span><br><span class="line"><span class="comment"># wget rmate</span></span><br><span class="line">wget https://raw.githubusercontent.com/sclukey/rmate-python/master/bin/rmate</span><br><span class="line"><span class="comment"># chmod</span></span><br><span class="line">chmod +x ./rmate</span><br><span class="line"><span class="comment"># copy to bin</span></span><br><span class="line">mv ./rmate /usr/<span class="built_in">local</span>/bin/rmate</span><br></pre></td></tr></table></figure><h3 id="local-VSCode"><a href="#local-VSCode" class="headerlink" title="local VSCode"></a>local VSCode</h3><p>Install the plugin <a href="https://marketplace.visualstudio.com/items?itemName=rafaelmaiolla.remote-vscode" target="_blank" rel="noopener">Remote VSCode</a>.command + shift + p <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;Remote:Start Server</span><br></pre></td></tr></table></figure></p><h3 id="Edit-via-ssh"><a href="#Edit-via-ssh" class="headerlink" title="Edit via ssh"></a>Edit via ssh</h3><p>Enable terminal in VSCode</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 52698:127.0.0.1:52698 remoteUser@xxx.xxx.xxx.xxx</span><br><span class="line"># find the file you want to edit, e.g. README.md</span><br><span class="line">touch README.md</span><br><span class="line"># rmate</span><br><span class="line">rmate -p 52698 README.md</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;https://jerry.c1495616.com/images/1534000846591.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Sometime I want to use vscode for remote server for co
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Vegetarian Restaurant</title>
@@ -443,30 +465,6 @@ We can see crontab visualy.
         &lt;p&gt;Before finishing loading mapView, it&amp;#39;s not a good user experience 
 for user if there&amp;#39;s no spinner.&lt;/p&gt;
 &lt;p&gt;We use classic spinner 
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>brave up</title>
-    <link href="https://jerry.c1495616.com/2017/01/11/brave-up/"/>
-    <id>https://jerry.c1495616.com/2017/01/11/brave-up/</id>
-    <published>2017-01-11T15:42:36.000Z</published>
-    <updated>2017-01-11T10:06:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>回想過去，自己好像還是很容易緊張、害羞，即使走過大大小小，去過美國、日本，上台演講，不管用英文或中文，但為什麼面對人還是很緊張，腦筋一片空白，尤其心儀的女孩子，鼓起勇氣撥了電話，卻不知道要聊什麼，如果是不在意的場合反而可以聊很多。講自己的專業相對容易，無論如何至少慢慢突破自己，即使結果不太滿意。十月打算去加拿大一趟，當作給自己鼓起勇氣，自己一個人去吧！我要去參加研討會<a href="http://2017.fsto.co/" target="_blank" rel="noopener">FSTO</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;回想過去，自己好像還是很容易緊張、害羞，即使走過大大小小，去過美國、日本，
-上台演講，不管用英文或中文，但為什麼面對人還是很緊張，腦筋一片空白，尤其心儀的女孩子，
-鼓起勇氣撥了電話，卻不知道要聊什麼，如果是不在意的場合反而可以聊很多。
-講自己的專業相對容易，無論如何至少慢慢
       
     
     </summary>
