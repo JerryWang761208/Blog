@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jerry.c1495616.com/"/>
-  <updated>2018-08-11T15:48:17.910Z</updated>
+  <updated>2018-09-12T03:39:54.470Z</updated>
   <id>https://jerry.c1495616.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[Obj-C] Without Image Cache</title>
+    <link href="https://jerry.c1495616.com/2018/09/12/untitled-1536723322726/"/>
+    <id>https://jerry.c1495616.com/2018/09/12/untitled-1536723322726/</id>
+    <published>2018-09-12T03:35:22.000Z</published>
+    <updated>2018-09-12T03:39:54.470Z</updated>
+    
+    <content type="html"><![CDATA[<p>Add timestamp to image url.</p><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * imgUrl;  <span class="meta"># your image url</span></span><br><span class="line"><span class="built_in">NSString</span> * timeStampValue = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, (<span class="keyword">long</span>)[[<span class="built_in">NSDate</span> date] timeIntervalSince1970]];</span><br><span class="line"></span><br><span class="line">imgUrl = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@%@"</span>, imgUrl, ?t=, timeStampValue]</span><br></pre></td></tr></table></figure><p>===</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Add timestamp to image url.&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cl
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>VSCode SSH Edit</title>
@@ -442,29 +464,6 @@ We can see crontab visualy.
       
       
         &lt;h2 id=&quot;Install&quot;&gt;&lt;a href=&quot;#Install&quot; class=&quot;headerlink&quot; title=&quot;Install&quot;&gt;&lt;/a&gt;Install&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://www.hl10502.com/2017/02/13/hexo-gi
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>[iOS] add spinner until loading map completely</title>
-    <link href="https://jerry.c1495616.com/2017/01/12/iOS-add-spinner-until-loading-map-completely/"/>
-    <id>https://jerry.c1495616.com/2017/01/12/iOS-add-spinner-until-loading-map-completely/</id>
-    <published>2017-01-12T01:35:08.000Z</published>
-    <updated>2017-01-11T10:06:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Before finishing loading mapView, it&#39;s not a good user experience for user if there&#39;s no spinner.</p><p>We use classic spinner on the github.i.e. </p><p><a href="https://github.com/SVProgressHUD/SVProgressHUD" target="_blank" rel="noopener">SVProgressHUD</a></p><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"SVProgressHUD.h"</span></span></span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)viewDidLoad()&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    [SVProgressHUD show]; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Then the keypoint is the delegation.</p><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)mapViewDidFinishRenderingMap:(<span class="built_in">MKMapView</span> *)mapView fullyRendered:(<span class="built_in">BOOL</span>)fullyRendered <span class="comment">//地圖畫好後，解除spinner</span></span><br><span class="line">&#123;</span><br><span class="line">    [SVProgressHUD dismiss];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>All credit for <a href="http://stackoverflow.com/questions/12967128/how-to-use-mkmapview-finished-loading-delegate-possible-finished-displaying-d" target="_blank" rel="noopener">link</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Before finishing loading mapView, it&amp;#39;s not a good user experience 
-for user if there&amp;#39;s no spinner.&lt;/p&gt;
-&lt;p&gt;We use classic spinner 
       
     
     </summary>
